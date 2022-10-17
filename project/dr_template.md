@@ -13,8 +13,8 @@ us-east-2, us-west-1
 | Asset name | Brief description | AWS size eg. t3.micro (if applicable, not all assets will have a size) | Number of nodes/replicas or just how many of a particular asset | Identify if this asset is deployed to DR, replicated, created in multiple locations or just stored elsewhere |
 | EC2 | for VM | t3.micro | 3 | Yes |
 | Kubernetes nodes | K8s to deploy application |  | 2 | Yes |
-| VPC | To setup DR/HA on |  | 1 |  |
-| ALB | Load balance traffic | ß | 1 |  |
+| VPC | To setup DR/HA on |  | 2 | Yes |
+| ALB | Load balance traffic |  | 2 | Yes |
 | SQL Cluster nodes | Store data |  | 2 | Yes |
 |  |  |  |  |  |
 
