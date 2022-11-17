@@ -1,8 +1,9 @@
-# Infrastructure
+# 1Infrastructure
 
 ## AWS Zones
 
-us-east-2, us-west-1
+* Zone 1: us-east-2a, us-east-2b
+* Zone 2: us-west-1b, us-west-1c
 
 ## Servers and Clusters
 
@@ -11,16 +12,22 @@ us-east-2, us-west-1
 | Asset | Purpose | Size | Qty | DR |
 | ----- | ------- | ---- | --- | --- |
 | Asset name | Brief description | AWS size eg. t3.micro (if applicable, not all assets will have a size) | Number of nodes/replicas or just how many of a particular asset | Identify if this asset is deployed to DR, replicated, created in multiple locations or just stored elsewhere |
-| EC2 | for VM | t3.micro | 3 | Yes |
-| Kubernetes nodes | K8s to deploy application |  | 2 | Yes |
-| VPC | To setup DR/HA on |  | 2 | Yes |
-| ALB | Load balance traffic |  | 2 | Yes |
-| SQL Cluster nodes | Store data |  | 2 | Yes |
+| EC2 | for VM | t3.micro | 3 | Deployed to DR |
+| EKS Nodes | K8s node to deploy application | t3.medium | 2 | Deployed to DR |
+| VPC | To setup DR/HA on |  | multiple each az | Deployed to DR |
+| ALB | Load balance traffic |  | 1 | It is regional then no need to have more |
+| RDS | Store data | db.t2.small | 2 (1 read, 1 write) | Deployed to DR |
 |  |  |  |  |  |
 
 ### Descriptions
 
 More detailed descriptions of each asset identified above.
+
+* EC2 instane: for application running on it
+* VPC:to setup infrastructure on it
+* EKS Nodes:equivalent to Kubernetes worker node, we will deploy application as pod on it
+* ALB: an application load balancer support to share request between application instances behind.
+* RDS: a relational database managed by AWS to host our data on it.
 
 ## DR Plan
 
