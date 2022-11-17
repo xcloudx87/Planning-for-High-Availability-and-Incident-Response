@@ -160,6 +160,7 @@ Login to Grafana with `admin` for the username and `prom-operator` for the passw
         - **NOTE**: You will not see the goal SLO numbers in your dashboard and that is fine. The application doesn't have enough traffic or time to generate a 99% availabiliy or have an error budget that works.
     3. Please submit your Prometheus queries you use for you dashboards in the `prometheus_queries.md` file [linked here](prometheus_queries.md).
     4. Please take a screenshot of your created dashboard and include that as part of your submission for the project.
+    ![telegram-cloud-photo-size-5-6307467947773375130-y](https://user-images.githubusercontent.com/71874570/202408689-a8bdb88a-3432-4c2f-9b25-1ae2166c1caf.jpg)
 
 4. Deploy the infrastructure to zone1
     1. You will need to make sure the infrastructure is highly available. Please see the `requirements.md` document [here](requirements.md) for details on the requirements for making the infrastructure HA. You will modify your code to meet those requirements.
@@ -175,6 +176,7 @@ Login to Grafana with `admin` for the username and `prom-operator` for the passw
         - `terraform init`
         - `terraform apply`
     3. Please take a screenshot of a successful Terraform run and include that as part of your submission for the project.
+    ![telegram-cloud-photo-size-5-6316455995768943456-y](https://user-images.githubusercontent.com/71874570/202408833-b3c0161e-e76a-4d8f-af28-e48a7bc16045.jpg)
 
 5. Deploy the infrastructure to zone2 (DR)
     1. You will need to make sure the infrastructure is highly available. Please see the `requirements.md` document [here](requirements.md) for details on the requirements for making the infrastructure HA. You will modify your code to meet those requirements.
@@ -196,6 +198,7 @@ Login to Grafana with `admin` for the username and `prom-operator` for the passw
     - `terraform init`
     - `terraform apply`
     3. Please take a screenshot of a successful Terraform run and include that as part of your submission for the project.
+    ![telegram-cloud-photo-size-5-6318632925712724275-y](https://user-images.githubusercontent.com/71874570/202408908-f54a1400-4e48-4d6e-9c57-bcf1c8be46b1.jpg)
 
 6. Implement basic SQL replication and establish backups
     **NOTE:** The RDS configuration is completed under the `zone1` folder. Due to the way it was implemented in Terraform BOTH region RDS instances are completed under the same Terraform project.
@@ -206,10 +209,13 @@ Login to Grafana with `admin` for the username and `prom-operator` for the passw
         - You will need to add multiple availability zones for the RDS module. The starter code only contains 1 zone for each RDS instance in each region.
     2. The code for the `rds-s` cluster is commented out in the `rds.tf` file under the `zone-1` folder. You will need to fix the `rds-s` module and then uncomment this code for it to work
     3. Please take a screenshot of a successful Terraform run and include that as part of your submission for the project.
+    ![telegram-cloud-photo-size-5-6318632925712724417-y](https://user-images.githubusercontent.com/71874570/202408975-1787b6c8-b427-49b6-92a6-5538bf0ca3e3.jpg)
 
 7. Destroy it all. Zone1 first, then zone2 using `terraform destroy`
     1. Please take a screenshot of the final output from Terraform showing the destroyed resources
-
+    ![telegram-cloud-photo-size-5-6318632925712724421-y](https://user-images.githubusercontent.com/71874570/202409041-68d9e52a-2444-4c4d-b1e2-2810a41e65be.jpg)
+    ![telegram-cloud-photo-size-5-6318632925712724523-y](https://user-images.githubusercontent.com/71874570/202409072-6ff6ca3c-588c-4e84-8f60-d763823faf7d.jpg)
+    2. There was some issues with zone1 and zone2 when destroy resources then I have deleted them manually so the screenshots don't have enough number of resources which are actually be deleted.
 **NOTE:** 
 1. You will need to delete the zone1 and zone2 RDS cluster manually as it will not allow you to delete the last read-replica via the Terraform code.
     - Please take a screenshot of the final Terraform run and include that as part of your submission for the project.
