@@ -15,7 +15,7 @@
 | EC2 | for VM | t3.micro | 3 | Deployed to DR |
 | EKS Nodes | K8s node to deploy application | t3.medium | 2 | Deployed to DR |
 | VPC | To setup DR/HA on |  | multiple each az | Deployed to DR |
-| ALB | Load balance traffic |  | 1 | It is regional then no need to have more |
+| ALB | Load balance traffic |  | 1 | Deployed to DR |
 | RDS | Store data | db.t2.small | 2 (1 read, 1 write) | Deployed to DR |
 |  |  |  |  |  |
 
@@ -33,8 +33,10 @@ More detailed descriptions of each asset identified above.
 
 ### Pre-Steps:
 
-Prepare terraform scripts and check resource available in region and pricing. Run terraform script to provision and test again to ensure everything is deployed correctly.
+Prepare terraform scripts and check resource available in region and pricing. Run terraform script to provision redundancy architecture for every resource in DC site and test again to ensure everything is deployed correctly.
 
 ## Steps:
 
 You won't actually perform these steps, but write out what you would do to "fail-over" your application and database cluster to the other region. Think about all the pieces that were setup and how you would use those in the other region
+1\. Point domain to another ALB \(located at DR site\)
+2\. Perform fail\-over database to switch master role to DR site\.
