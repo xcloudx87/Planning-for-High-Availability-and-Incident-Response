@@ -104,13 +104,19 @@ Login to Grafana with `admin` for the username and `prom-operator` for the passw
         * **NOTE**: You will not see the goal SLO numbers in your dashboard and that is fine. The application doesn't have enough traffic or time to generate a 99% availabiliy or have an error budget that works.
     3. Please submit your Prometheus queries you use for you dashboards in the `prometheus_queries.md` file [linked here](prometheus_queries.md).
     4. Please take a screenshot of your created dashboard and include that as part of your submission for the project.
-    Error budget
+    
+    Screenshot
+
+       Error budget
     <img width="717" alt="image" src="https://user-images.githubusercontent.com/71874570/202640959-ff4dfb45-9ce8-418c-beaa-a23a13fbc846.png">
-    Latency
+    
+       Latency
     <img width="717" alt="image" src="https://user-images.githubusercontent.com/71874570/202641041-577dc2f3-322f-46a0-b8cd-4632d16acb60.png">
-    Throughput
+    
+       Throughput
     <img width="714" alt="image" src="https://user-images.githubusercontent.com/71874570/202641102-5dac9bed-9fca-482b-93c3-922fa7ba3c67.png">
-    Availability
+    
+       Availability
     <img width="715" alt="image" src="https://user-images.githubusercontent.com/71874570/202641145-f6891f9e-e1e5-4d3b-b60f-2fe64b849d1d.png">
 
 4. Deploy the infrastructure to zone1
