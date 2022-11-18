@@ -108,15 +108,19 @@ Login to Grafana with `admin` for the username and `prom-operator` for the passw
     Screenshot
 
        Error budget
+       Query: 1 - ((1 - (sum(increase(flask_http_request_total{instance="18.221.65.230:80", status="200"}[7d])) by (verb)) / sum(increase(flask_http_request_total{instance="18.221.65.230:80"}[7d])) by (verb)) / (1 - .80))
     <img width="717" alt="image" src="https://user-images.githubusercontent.com/71874570/202640959-ff4dfb45-9ce8-418c-beaa-a23a13fbc846.png">
     
        Latency
+       Query: histogram_quantile(0.9, sum by(le, verb) (rate(flask_http_request_duration_seconds_bucket{instance="18.221.65.230:80"}[5m])))
     <img width="717" alt="image" src="https://user-images.githubusercontent.com/71874570/202641041-577dc2f3-322f-46a0-b8cd-4632d16acb60.png">
     
        Throughput
+       Query: rate(flask_http_request_duration_seconds_count{instance="18.221.65.230:80"}[1m])
     <img width="714" alt="image" src="https://user-images.githubusercontent.com/71874570/202641102-5dac9bed-9fca-482b-93c3-922fa7ba3c67.png">
     
        Availability
+       Query: sum(rate(flask_http_request_total{instance="18.221.65.230:80", status="200"}[5m])) / sum(rate(flask_http_request_total{instance="18.221.65.230:80"}[5m]))
     <img width="715" alt="image" src="https://user-images.githubusercontent.com/71874570/202641145-f6891f9e-e1e5-4d3b-b60f-2fe64b849d1d.png">
 
 4. Deploy the infrastructure to zone1
