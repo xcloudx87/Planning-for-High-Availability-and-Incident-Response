@@ -2,7 +2,7 @@
 
 ## AWS Zones
 
-* Zone 1: us-east-2a, us-east-2b
+* Zone 1: us-east-2a, us-east-2b, us-east-2c
 * Zone 2: us-west-1b, us-west-1c
 
 ## Servers and Clusters
@@ -23,11 +23,11 @@
 
 More detailed descriptions of each asset identified above.
 
-* EC2 instane: for application running on it
-* VPC:to setup infrastructure on it
-* EKS Nodes:equivalent to Kubernetes worker node, we will deploy application as pod on it
-* ALB: an application load balancer support to share request between application instances behind.
-* RDS: a relational database managed by AWS to host our data on it.
+* EC2 instane: It is a virtual machine running on AWS infrastructure. We will use it to host application on.
+* VPC: enables us to launch AWS resources into a virtual network that you've defined. This virtual network closely resembles a traditional network that you'd operate in your own data center, with the benefits of using the scalable infrastructure of AWS.
+* EKS Nodes: Amazon EKS nodes run in our AWS account and connect to the control plane of our cluster through the cluster API server endpoint. We deploy one or more nodes into a node group. Microservices will be deployed as pod on those nodes.
+* ALB: an application load balancer automatically distributes your incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones. It monitors the health of its registered targets, and routes traffic only to the healthy targets.
+* RDS: is a collection of managed services that makes it simple to set up, operate, and scale databases in the cloud. We will use it to configure a databse cluster to keep database high availability.
 
 ## DR Plan
 
@@ -35,8 +35,14 @@ More detailed descriptions of each asset identified above.
 
 Prepare terraform scripts and check resource available in region and pricing. Run terraform script to provision redundancy architecture for every resource in DC site and test again to ensure everything is deployed correctly.
 
+1\. Planning infrastructure in zone1 and zone2 to be the same
+2\. Deploy infrastructure using terraform
+3\. Verify infrastructure in zone2 to make sure it deployed successfully and be the same as zone 1
+
 ## Steps:
 
 You won't actually perform these steps, but write out what you would do to "fail-over" your application and database cluster to the other region. Think about all the pieces that were setup and how you would use those in the other region
-1\. Point domain to another ALB \(located at DR site\)
-2\. Perform fail\-over database to switch master role to DR site\.
+
+1\. Create a load balancer in zone2 and point a domain to it\. If we got issue in zone1 we will just need to re\-point DNS entry at DNS provider to load balancer in zone2\.
+
+2\. Setup database replication between zone1 and zone2\. If we got issue in zone1 we just need to perform database fail\-over then application will continue to work properly with new writer instance\.
