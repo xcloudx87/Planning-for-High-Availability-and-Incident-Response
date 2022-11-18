@@ -171,6 +171,11 @@ vpc_id = data.terraform_remote_state.vpc.outputs.vpc_id
     **NOTE:**
 8. You will need to delete the zone1 and zone2 RDS cluster manually as it will not allow you to delete the last read-replica via the Terraform code.
     * Please take a screenshot of the final Terraform run and include that as part of your submission for the project.
+    * Screenshot RDS zone1:
+    ![telegram-cloud-photo-size-5-6321058877860327834-y](https://user-images.githubusercontent.com/71874570/202654339-fb7a2cf5-e15e-49ea-bb5f-09e9711910d9.jpg)
+    * Screenshot for RDS zone2:
+    <img width="755" alt="image" src="https://user-images.githubusercontent.com/71874570/202654476-9fdb4386-5f56-470e-91dd-9603b10e479b.png">
+
 9. You may see errors in `terraform destroy`. In this case, we would suggest you go through [this](https://knowledge.udacity.com/questions/793669) thread on knowledge hub.
 
 ## Standout Suggestions
