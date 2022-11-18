@@ -104,7 +104,15 @@ Login to Grafana with `admin` for the username and `prom-operator` for the passw
         * **NOTE**: You will not see the goal SLO numbers in your dashboard and that is fine. The application doesn't have enough traffic or time to generate a 99% availabiliy or have an error budget that works.
     3. Please submit your Prometheus queries you use for you dashboards in the `prometheus_queries.md` file [linked here](prometheus_queries.md).
     4. Please take a screenshot of your created dashboard and include that as part of your submission for the project.
-    ![telegram-cloud-photo-size-5-6307467947773375130-y](https://user-images.githubusercontent.com/71874570/202408689-a8bdb88a-3432-4c2f-9b25-1ae2166c1caf.jpg)
+    Error budget
+    <img width="717" alt="image" src="https://user-images.githubusercontent.com/71874570/202640959-ff4dfb45-9ce8-418c-beaa-a23a13fbc846.png">
+    Latency
+    <img width="717" alt="image" src="https://user-images.githubusercontent.com/71874570/202641041-577dc2f3-322f-46a0-b8cd-4632d16acb60.png">
+    Throughput
+    <img width="714" alt="image" src="https://user-images.githubusercontent.com/71874570/202641102-5dac9bed-9fca-482b-93c3-922fa7ba3c67.png">
+    Availability
+    <img width="715" alt="image" src="https://user-images.githubusercontent.com/71874570/202641145-f6891f9e-e1e5-4d3b-b60f-2fe64b849d1d.png">
+
 4. Deploy the infrastructure to zone1
     1. You will need to make sure the infrastructure is highly available. Please see the `requirements.md` document [here](requirements.md) for details on the requirements for making the infrastructure HA. You will modify your code to meet those requirements.
     **Note for availability zones** that not all regions have the same number of availability zones. You will need to lookup the AZs for `us-east-2`. You will get errors when first running the code you will have to fix!
