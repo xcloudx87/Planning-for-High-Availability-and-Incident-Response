@@ -39,7 +39,6 @@ resource "kubernetes_namespace" "monitoring" {
   }
 
   depends_on = [
-    module.project_eks,
-    kubernetes_namespace.monitoring
+    module.project_eks
   ]
 }
